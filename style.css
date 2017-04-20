@@ -1,0 +1,113 @@
+body
+{
+	background:url("img/tlo.png");
+	padding: 0;
+	margin: 0;
+}
+h1, h2, p
+{
+	padding: 10px;
+	margin: 0;
+}
+
+.text
+{
+	background-color: #76c4b3;
+	border-radius: 20px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 700px;
+	height: 350px;
+	margin: auto;
+	text-align: center;
+	font-family: 'Courgette', cursive;
+	font-size: 20px;
+}
+
+h1
+{
+	font-size: 35px;
+	color: #008b6c;
+	letter-spacing: 2px;
+}
+h2
+{
+	font-size: 30px;
+	color: #008b6c;
+	letter-spacing: 2px;
+}
+
+button
+{
+	width: 206px;
+	height: 50px;
+	border-radius: 20px;
+	font-weight: bold;
+	margin: 10px;
+	border: none;
+	outline: none;
+	background: linear-gradient(to bottom, #D7FBF3 0%, #7ACAAA 100%);
+	cursor: pointer;
+}
+
+.footer
+{
+	text-align: center;
+	font-size: 18px;
+	height: 35px;
+	color:#008b6c;
+	padding-top: 15px; 
+	font-family: 'Courgette', cursive;
+}
+
+/*********************** #game *************/
+
+#game_board
+{
+	background: rgba(118, 196, 179, 1);
+	border-radius: 20px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 700px;
+	height: 350px;
+	margin: auto;
+}
+
+
+#item
+{
+	position: relative;
+	/*background:url("item.png");
+	border-radius: 100%;*/
+	cursor: pointer;
+}
+#current_level, #timer
+{
+	padding: 15px;
+}
+#info
+{
+	background: #009B78;
+	color: #fff;
+	border-radius: 20px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	text-align: center;
+	font-family: 'Courgette', cursive;
+	font-size: 20px;
+	width: 300px;
+}
+
+#game_over
+{
+	width: 400px;
+	height: 200px;
+}

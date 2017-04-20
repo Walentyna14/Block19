@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="eng">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="author" content="Kamila Kosmowska"/>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet"/>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+		<link rel="icon" href="favicon.ico" type="image/x-icon">
+		<title> Game </title>
+	</head>
+	<body>
+		<div id="main" class="text">
+			<h1>Rules</h1>
+			<p>You must catch the tringle before time it's over. You have 15 level, on each of them you have less, and less time, and the tringle moved faster. If you don't chatch the tringle, game started from the first.</p>
+			<h2> Good luck!</h2>
+			<button type="button">Start!</button>
+			<p class="footer">© 2017 Kamila Kosmowska</p>
+		</div>
+		<div id="game">
+			<div id="info">Level: <span id="current_level"></span> Time: <span id="timer"></span></div>
+			<div id="game_board">
+				<img src="img/item.png" id="item">
+			</div>
+		</div>
+		<div id="game_over" class="text">
+			<div id="win">
+				<h2>Win!</h2>
+			</div>
+			<div id="lose">
+				<h2>Failure!</h2>
+			</div>
+			<button type="button">Try again!</button>
+			<p class="footer">© 2017 Kamila Kosmowska</p>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="app.js"></script>
+	</body>
+</html>
