@@ -1,3 +1,6 @@
+//VARIABLES
+var position, timerStart, time, nowTime, gameTimeMili, level = 0, sec;
+
 var main = function(){
 	gameSize();
 	$("#game").hide();
@@ -9,10 +12,33 @@ var main = function(){
 	
 }//End MAIN
 $(document).ready(main);
-//VARIABLES
-var position, timerStart;
-
 //FUNCTIONS
+
+var realTime = function(){
+	nowTime = Math.floor(Date.now() / 1000);
+	time = gameTime - nowTime;
+};
+
+var realTimeTimer = function(){
+	realTime();
+	if(time>0){
+		sec=time-1;
+		if (sec<10) 
+			sec = "0"+sec;
+		if (sec==0) 
+			notCatch();
+		min="00";
+		$("#timer").text(min+":"+sec);
+	}
+};
+
+var timeRun = function(){
+	var d = new Date();
+	nowTimeMili = Math.floor(d.getUTCMilliseconds() / 100)*100+100;
+	if(nowTimeMili ==(1000-level*100)&&sec!=0){
+		run();
+	}
+};
 
 var randomNumber = function(min , max){
 	return (min + Math.floor(Math.random() * max));
@@ -38,19 +64,14 @@ var writeLevel = function(){
 var levelUp = function(event) {
 	event.stopPropagation();
 	++level;
-	if (level==16){
+	if (level==4){
 		catchItem();
 	}else{
 		writeLevel();
 		clearInterval(position);
-		time=1000-50*level;
-		position = setInterval(run, time);
-		
-		sec= sec-2;
-		
+		position = setInterval(timeRun, 100);
 	}
 };
-
 
 var gameSize = function() {
 	documentSize();
@@ -62,14 +83,12 @@ var startGame = function(){
 	$("#main").hide();
 	$("#game_over").hide();
 	$("#game").show();
-	sec = 60;
-	time = 1000;
-	level = 0;
+	gameTime = Math.floor(Date.now() / 1000)+60;
 	clearInterval(position);
-	position = setInterval(run, time);
+	position = setInterval(timeRun, 100);
 	writeLevel();
 	clearInterval(timerStart);
-	timerStart = setInterval(timer, 1000);
+	timerStart = setInterval(realTimeTimer, 500);
 }
 var gameOver = function(){
 	$("#game").hide();
@@ -83,18 +102,4 @@ var catchItem = function (){
 var notCatch = function (){
 	gameOver();
 	$("#win").hide();
-}
-
-var timer= function (){
-	sec--;
-	if (sec<10) 
-	{
-		sec = "0"+sec;
-	}
-	if (sec==0) 
-	{
-		notCatch();
-	}
-	min="00";
-	$("#timer").text(min+":"+sec);
 }
